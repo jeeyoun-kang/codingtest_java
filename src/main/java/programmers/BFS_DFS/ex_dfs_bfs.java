@@ -26,7 +26,7 @@ public class ex_dfs_bfs {
             if (visited[i]) {
                 continue;
             }
-            DFS(i,graph, visited);
+            DFS(i, visited);
         }
     }
 
@@ -53,7 +53,7 @@ public class ex_dfs_bfs {
         }
     }
 
-    static void DFS(int now, int[][] computers, boolean[] visited) {
+    static void DFS(int now, boolean[] visited) {
         Stack<Integer> stack = new Stack<>();
         stack.push(now);
 
@@ -63,8 +63,8 @@ public class ex_dfs_bfs {
                 continue;
             }
             visited[temp] = true;
-            for (int i = 0; i < computers[temp].length; i++) {
-                if (computers[temp][i] == 0) {
+            for (int i = 0; i < graph[temp].length; i++) {
+                if (graph[temp][i] == 0) {
                     continue;
                 }
                 if (temp != i) {
