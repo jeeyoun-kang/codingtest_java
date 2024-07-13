@@ -25,7 +25,6 @@ public class pg_250136 {
                 }
             }
         }
-
         // 가장 많은 석유량 반환
         return Arrays.stream(answer).max().orElse(0);
     }
