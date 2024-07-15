@@ -17,8 +17,9 @@ public class pg_250136 {
                 if (land[x][y] == 1 && !visited[x][y]) {
                     cnt = 0; // cnt 초기화
                     Set<Integer> candidates = new HashSet<>();
-                    //saveStone(y, x, land, candidates);
-                    saveStone2(y, x, land, candidates);
+                    saveStone(y, x, land, candidates);
+                    System.out.println(candidates);
+                    //saveStone2(y, x, land, candidates);
                     for (int candidate : candidates) {
                         answer[candidate] += cnt;
                     }

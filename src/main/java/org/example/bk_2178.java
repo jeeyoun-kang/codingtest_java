@@ -14,7 +14,7 @@ public class bk_2178 {
     static int m;
     static boolean[][] visited;
 
-    static int[][] clone;
+    //static int[][] clone;
 
     static int[][] miro;
 
@@ -26,7 +26,7 @@ public class bk_2178 {
         m = Integer.parseInt(xy[1]);
 
         miro = new int[n][m];
-        clone = new int[n][m];
+        //clone = new int[n][m];
         visited = new boolean[n][m];
 
         for (int i = 0; i < n; i++) {
@@ -36,14 +36,14 @@ public class bk_2178 {
             }
         }
 
-        clone = miro.clone();
+        int [][]clone = miro.clone();
         visited[0][0] = true;
-        bfs(0, 0);
+        bfs(0, 0,clone);
 
         System.out.println(clone[n - 1][m - 1]);
     }
 
-    private static void bfs(int x, int y) {
+    private static void bfs(int x, int y,int[][] clone) {
         int[] dx = {0, 0, -1, 1};
         int[] dy = {-1, 1, 0, 0};
 
