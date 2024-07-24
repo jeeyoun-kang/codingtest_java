@@ -14,6 +14,7 @@ public class bk_2580 {
     static boolean[] box= new boolean[9];
     static int cnt=0;
 
+    static int[] arrCnt = new int[9];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -22,18 +23,17 @@ public class bk_2580 {
             String[] test = br.readLine().split(" ");
             for(int j=0;j<9;j++){
                 arr[i][j]= Integer.parseInt(test[j]);
-
-            }
-        }
-        //0의 갯수를 토대로 반복문 실행
-        for(int i=0;i<9;i++){
-            for(int j=0;j<9;j++){
-                if(arr[i][j]==0){
+                if(arr[i][j]!=0) {
+                    arrCnt[arr[i][j] - 1] += 1; //숫자에 해당하는 인덱스 카운트
+                }
+                else{
                     cnt++;
                 }
             }
         }
         //값은 숫자는 9개씩 존재 -> 숫자갯수가 9개에 가까운 숫자 기준으로 박스 안 숫자 채우기
+
+
         //같은 행,렬,박스 기준에서 넣으려는 값이 존재한다면 롤백
         while (cnt!=0){
             square();
