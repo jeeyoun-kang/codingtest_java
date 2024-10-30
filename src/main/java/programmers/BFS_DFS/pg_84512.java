@@ -1,6 +1,40 @@
 package programmers.BFS_DFS;
 import java.util.*;
 public class pg_84512 {
+    static char[] vowels = {'A', 'E', 'I', 'O', 'U'};
+    static int[] weights = {781, 156, 31, 6, 1}; // 각 자리에서 가지는 가중치 (자리마다 5^n-1)
+
+    public static void main(String[] args) {
+        // 예시: 단어 "AAAAE"가 사전에서 몇 번째인지 계산
+        String word = "AAAAE";
+        System.out.println("Word: " + word + ", Position: " + getPosition(word));
+    }
+
+    // 단어의 위치를 계산하는 함수
+    static int getPosition(String word) {
+        int position = 0;
+
+        for (int i = 0; i < word.length(); i++) {
+            // 현재 문자의 위치를 찾고 가중치를 적용
+            int index = findIndex(word.charAt(i));
+            position += index * weights[i] + 1;
+            System.out.println(position);
+        }
+
+        return position;
+    }
+
+    // 문자의 인덱스(A:0, E:1, I:2, O:3, U:4)를 반환
+    static int findIndex(char c) {
+        for (int i = 0; i < vowels.length; i++) {
+            if (vowels[i] == c) {
+                return i;
+            }
+        }
+        return -1; // 오류 방지를 위한 기본 값
+    }
+
+
 
     //문제에 정의한 리스트를 직접 만든 후 값 찾기
     class Solution1 {
